@@ -19,13 +19,7 @@ type App struct {
 
 // NewApp creates a new App application struct
 func NewApp() *App {
-	return &App{}
-}
-
-// startup is called when the app starts. The context is saved
-// so we can call the runtime methods
-func (a *App) startup(ctx context.Context) {
-	a.ctx = ctx
+	a := &App{}
 	a.log = logrus.New()
 
 	srv, err := internal.NewService(a.log)
@@ -34,6 +28,14 @@ func (a *App) startup(ctx context.Context) {
 	}
 
 	a.srv = srv
+
+	return a
+}
+
+// startup is called when the app starts. The context is saved
+// so we can call the runtime methods
+func (a *App) startup(ctx context.Context) {
+	a.ctx = ctx
 }
 
 // Greet returns a greeting for the given name
@@ -45,5 +47,5 @@ func (a *App) Greet(word string) string {
 
 	data, _ := json.Marshal(got)
 	fmt.Println(string(data))
-	return fmt.Sprintf("Hello %s, It's show time!", word)
+	return string(data) //fmt.Sprintf("Hello %s, It's show time!", word)
 }

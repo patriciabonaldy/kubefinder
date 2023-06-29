@@ -60,7 +60,6 @@ func NewService(log *logrus.Logger) (Service, error) {
 func (s *service) FindInConfigMaps(word string) (interface{}, error) {
 	result := make([]ConfigMap, 0)
 	var validID = regexp.MustCompile(fmt.Sprintf(`%s.*?\\n`, word))
-
 	for _, config := range configMap {
 		matches := validID.FindAllString(config.Value, -1)
 		if len(matches) > 0 {
