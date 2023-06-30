@@ -2,8 +2,6 @@ package main
 
 import (
 	"context"
-	"fmt"
-
 	"github.com/sirupsen/logrus"
 	"k8s.io/apimachinery/pkg/util/json"
 
@@ -46,6 +44,6 @@ func (a *App) Greet(word string) string {
 	}
 
 	data, _ := json.Marshal(got)
-	fmt.Println(string(data))
-	return string(data) //fmt.Sprintf("Hello %s, It's show time!", word)
+
+	return string(data)
 }

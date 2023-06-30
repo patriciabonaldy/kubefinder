@@ -5,13 +5,13 @@
 
 #logo {
     display: block;
-    width: 50%;
-    height: 50%;
+    width: 15%;
+    height: 15%;
     margin: auto;
     padding: 10% 0 0;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: 50% 50%;
     background-origin: content-box;
 }
 
